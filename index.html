@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>おめでとう！</title>
+    <style>
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: black; }
+        video { width: 100vw; height: 100vh; object-fit: cover; }
+    </style>
+</head>
+<body>
+    <!-- 100%広告なしのミラーファイルを使用 -->
+    <video id="rick" controls autoplay playsinline>
+        <source src="https://shattereddisk.github.io" type="video/mp4">
+        お使いのブラウザは動画再生に対応していません。
+    </video>
+
+    <script>
+        // ブラウザの自動再生制限対策：画面のどこかをクリックしたら再生開始
+        document.body.addEventListener('click', function() {
+            var video = document.getElementById('rick');
+            if (video.paused) {
+                video.play();
+            }
+        });
+    </script>
+</body>
+</html>
