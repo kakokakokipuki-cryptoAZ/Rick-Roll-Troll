@@ -5,23 +5,33 @@
     <title>おめでとう！</title>
     <style>
         body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #000; }
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
         #overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8); color: white;
-            display: flex; justify-content: center; align-items: center;
-            font-size: 24px; cursor: pointer; z-index: 10;
+            background: rgba(0,0,0,0.9); color: #ff0000; /* 赤色 */
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            z-index: 10; cursor: pointer;
         }
+        /* でっかいHAHAのスタイル */
+        .haha-text {
+            font-size: 150px; /* 超でかい */
+            font-weight: black;
+            margin: 0;
+            line-height: 1;
+        }
+        .instruction { color: white; font-size: 20px; margin-top: 20px; }
+        .video-container { position: relative; width: 100%; height: 100vh; }
+        iframe { width: 100%; height: 100%; border: none; }
     </style>
 </head>
 <body>
 
-    <!-- 画面をタップさせるためのオーバーレイ -->
-    <div id="overlay" onclick="startVideo()">画面をタップして再生！</div>
+    <!-- タップ画面（でっかいHAHA） -->
+    <div id="overlay" onclick="startVideo()">
+        <p class="haha-text">HAHA</p>
+        <p class="instruction">タップして再生</p>
+    </div>
 
     <div class="video-container">
-        <!-- 「 여기에動画のIDを入れる 」を実際のIDに変更してください -->
         <div id="player"></div>
     </div>
 
@@ -34,9 +44,8 @@
         var player;
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('player', {
-                height: '100%',
-                width: '100%',
-                videoId: 'dQw4w9WgXcQ', // 例: dQw4w9WgXcQ
+                height: '100%', width: '100%',
+                videoId: 'dQw4w9WgXcQ', // ←ここにYouTubeの11桁のIDを入れて！
                 playerVars: { 'playsinline': 1, 'autoplay': 0, 'controls': 1 },
             });
         }
