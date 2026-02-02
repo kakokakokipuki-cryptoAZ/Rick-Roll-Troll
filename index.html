@@ -28,28 +28,22 @@
 
     <script>
         function startFullScreen() {
-            const videoID = 'dQw4w9WgXcQ'; // 💡ここを好きなIDに！
-            const container = document.getElementById('video-container');
             const iframe = document.getElementById('player');
+            const container = document.getElementById('video-container');
             const overlay = document.getElementById('overlay');
 
-            // URLをセット
-            iframe.src = "https://www.youtube.com" + videoID + "?autoplay=1&rel=0";
+            // 💡 ここに「正しいURL」を丸ごと書きます（/ を忘れずに！）
+            // もし動画を変えたいなら embed/ の後の 11文字 を書き換えてください
+            iframe.src = "https://www.youtube.com";
             
             overlay.style.display = 'none';
             container.style.display = 'block';
 
-            // 💡 フルスクリーン化の処理
-            const elem = document.documentElement; // 画面全体
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            } else if (elem.webkitRequestFullscreen) { /* Safari / Vivaldi Mac */
-                elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) { /* IE11 */
-                elem.msRequestFullscreen();
-            }
+            // フルスクリーン実行
+            const elem = document.documentElement;
+            if (elem.requestFullscreen) { elem.requestFullscreen(); }
+            else if (elem.webkitRequestFullscreen) { elem.webkitRequestFullscreen(); }
         }
     </script>
 </body>
 </html>
-
