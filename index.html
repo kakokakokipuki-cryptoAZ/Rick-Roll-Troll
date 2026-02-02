@@ -8,17 +8,17 @@
         body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; }
         #overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #000; color: #f00; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; z-index: 9999; cursor: pointer;
+            background: #000; color: #f00; display: flex; justify-content: center; align-items: center;
+            z-index: 9999; cursor: pointer;
         }
-        .haha-text { font-size: 25vw; font-weight: 900; }
+        .haha-text { font-size: 25vw; font-weight: 900; margin: 0; }
         #video-container { width: 100%; height: 100%; display: none; }
         iframe { width: 100%; height: 100%; border: none; }
     </style>
 </head>
 <body>
 
-    <div id="overlay" onclick="startFullScreen()">
+    <div id="overlay" onclick="start()">
         <p class="haha-text">HAHA</p>
     </div>
 
@@ -27,19 +27,17 @@
     </div>
 
     <script>
-        function startFullScreen() {
+        function start() {
             const iframe = document.getElementById('player');
             const container = document.getElementById('video-container');
             const overlay = document.getElementById('overlay');
 
-            // 💡 ここに「正しいURL」を丸ごと書きます（/ を忘れずに！）
-            // もし動画を変えたいなら embed/ の後の 11文字 を書き換えてください
-            iframe.src = "https://www.youtube.com/watch?v=xvFZjo5PgG0";
+            // 💡 ここに embed/xvFZjo5PgG0 を入れました！
+            iframe.src = "https://www.youtube.com/embed/xvFZjo5PgG0?autoplay=1";
             
             overlay.style.display = 'none';
             container.style.display = 'block';
 
-            // フルスクリーン実行
             const elem = document.documentElement;
             if (elem.requestFullscreen) { elem.requestFullscreen(); }
             else if (elem.webkitRequestFullscreen) { elem.webkitRequestFullscreen(); }
