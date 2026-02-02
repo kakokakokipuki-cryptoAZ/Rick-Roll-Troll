@@ -13,7 +13,15 @@
         .status { font-size: 15px; color: #8e8e93; margin-bottom: 40px; }
         .connect-btn { width: 80%; max-width: 300px; padding: 16px; background: #007aff; color: white; border-radius: 14px; font-size: 18px; font-weight: 600; text-align: center; cursor: pointer; }
         #video-container { width: 100%; height: 100vh; display: none; background: #000; }
-        iframe { width: 100%; height: 100%; border: none; }
+        iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+            /* 💡 動画を拡大して、上に出るタイトルを画面の外へ追い出す */
+            transform: scale(1.5); 
+            transform-origin: center;
+        }
+
     </style>
 </head>
 <body>
